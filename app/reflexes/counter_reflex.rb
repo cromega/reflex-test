@@ -1,14 +1,12 @@
 class CounterReflex < ApplicationReflex
   def decrement
     counter.decrement
+    morph container_selector, render(CounterComponent.new(counter))
   end
 
   def increment
     counter.increment
-  end
-
-  after_reflex do
-    morph container_selector, render(partial: "counter", locals: {counter: counter})
+    morph container_selector, render(CounterComponent.new(counter))
   end
 
   private

@@ -1,4 +1,4 @@
 <div id="counters">
-  <%= render partial: "counter", locals: {counter: @left} %>
-  <%= render partial: "counter", locals: {counter: @right} %>
+  <%= render CounterComponent.new(@left) %>
+  <%= render CounterComponent.new(@right) %>
 </div>
