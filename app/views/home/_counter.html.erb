@@ -1,7 +1,8 @@
-<p>FASZOM</p>
-<p>
-<button data-reflex="click->Counter#decrement">Decrement</button>
-<button data-reflex="click->Counter#increment">Increment</button>
-</p>
-<p>
-<h4 class="counter"><%= counter %></h4>
+<div class="container" data-counter-id="<%= counter.id %>">
+  <p><%= counter.name.upcase %></p>
+  <p>
+    <button data-reflex="click->Counter#decrement" data-reflex-dataset="combined">Decrement</button>
+    <button data-reflex="click->Counter#increment" data-reflex-dataset="combined">Increment</button>
+  </p>
+  <p>Count: <span class="counter"><%= counter.value %></span></p>
+</div>

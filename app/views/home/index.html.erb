@@ -1,3 +1,4 @@
-<div id="counter">
-  <%= render partial: "counter", locals: {counter: session[:counter]} %>
+<div id="counters">
+  <%= render partial: "counter", locals: {counter: @left} %>
+  <%= render partial: "counter", locals: {counter: @right} %>
 </div>

@@ -1,13 +1,23 @@
 class CounterReflex < ApplicationReflex
   def decrement
-    session[:counter] -= 1
+    counter.decrement
   end
 
   def increment
-    session[:counter] += 1
+    counter.increment
   end
 
   after_reflex do
-    morph "#counter", render(partial: "counter", locals: {counter: session[:counter]})
+    morph container_selector, render(partial: "counter", locals: {counter: counter})
+  end
+
+  private
+
+  def container_selector
+    ".container[data-counter-id=\"#{counter.id}\"]"
+  end
+
+  def counter
+    @counter ||= Counter.find element.dataset["counter-id"]
   end
 end
