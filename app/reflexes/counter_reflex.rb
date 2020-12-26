@@ -14,6 +14,7 @@ class CounterReflex < ApplicationReflex
   private
 
   def container_selector
+    #"#counters > .container[data-counter-id=\"#{counter.id}\"]"
     ".container[data-counter-id=\"#{counter.id}\"]"
   end
 
